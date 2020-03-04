@@ -1,6 +1,6 @@
 <% if @player_1_name && @player_2_name %>
-<div> <%=@player_1_name%> vs. <%=@player_2_name%>
-  </div>
+  <div> <%=@player_1_name%> vs. <%=@player_2_name%> </div>
   <div> <%=@player_1_name %> HP: <%= @player_1_hit%> </div>
-  <div> <%=@player_2_name %> HP: <%= @player_2_hit%>
+  <div> <%=@player_2_name %> HP: <%= @player_2_hit%> </div>
+  <a href="/attack"><button type="button">Attack</button></a>
 <% end %>
