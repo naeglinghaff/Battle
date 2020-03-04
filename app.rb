@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/player'
 
 class Battle < Sinatra::Base
 
@@ -10,26 +11,28 @@ enable :sessions
   end
 
 # submits the name variables from params then puts them in the session hash, then redirects to new get view
+# now stores the vaiables in the object and accesses them via global variables
   post '/names' do
-    @player_1_name = params[:player_1_name]
-    @player_2_name = params[:player_2_name]
-    session[:player_1_name] = @player_1_name
-    session[:player_2_name] = @player_2_name
+    p params
+    $player_1 = Player.new(params[:player_1_name])
+    $player_2 = Player.new(params[:player_2_name])
+    p params
     redirect '/play'
   end
 
 # fetches params from session, gets new page
+# now fetches from objects
   get '/play' do
-    @player_1_name = session[:player_1_name]
-    @player_2_name = session[:player_2_name]
-    @player_1_hit = 50
-    @player_2_hit = 50
+    $player_1_name = $player_1.name
+    $player_2_name = $player_2.name
+    $player_1_hp = $player_1.hp
+    $player_2_hp = $player_2.hp
     erb :play
   end
 
   get '/attack' do
-    @player_1_name = session[:player_1_name]
-    @player_2_name = session[:player_2_name]
+    $player_1_name = $player_1.name
+    $player_2_name = $player_2.name
     erb :attack
   end
 
