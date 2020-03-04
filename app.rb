@@ -13,10 +13,8 @@ enable :sessions
 # submits the name variables from params then puts them in the session hash, then redirects to new get view
 # now stores the vaiables in the object and accesses them via global variables
   post '/names' do
-    p params
     $player_1 = Player.new(params[:player_1_name])
     $player_2 = Player.new(params[:player_2_name])
-    p params
     redirect '/play'
   end
 
@@ -33,6 +31,8 @@ enable :sessions
   get '/attack' do
     $player_1_name = $player_1.name
     $player_2_name = $player_2.name
+    $player_1.attack($player_2)
+    $player_2_hp = $player_2.hp
     erb :attack
   end
 
