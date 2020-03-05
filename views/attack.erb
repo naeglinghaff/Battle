@@ -1,4 +1,4 @@
-<% if $player_1_name && $player_2_name %>
-  <div> <%=$player_1_name%> uses attack on <%=$player_2_name%> </div>
-  <div><%=$player_2_name%>'s HP:<%=$player_2_hp%></div>
+<% if @player_1_name && @player_2_name %>
+  <div> <%=@player_1_name%> uses attack on <%=@player_2_name%> </div>
+  <div><%=@player_2_name%>'s HP:<%=@player_2_hp%></div>
 <% end %>
