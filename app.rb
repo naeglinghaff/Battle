@@ -26,6 +26,7 @@ enable :sessions
   get '/play' do
     @player_1_name = @game.player_1.name
     @player_2_name = @game.player_2.name
+    player_1_hp = @game.player_1.hp
     @player_2_hp = @game.player_2.hp
     erb(:play)
   end
@@ -35,10 +36,11 @@ enable :sessions
     @player_2_name = @game.player_2.name
     @player_1_hp = @game.player_1.hp
     @player_2_hp = @game.player_2.hp
-    @current_player = @game.current_player.name
+    @current_player_name = @game.current_player.name
+    @current_opponent_name = @game.current_opponent.name
     erb(:attack)
   end
-
+  
   post '/attack' do
     @game.turn
     if @game.game_over == true

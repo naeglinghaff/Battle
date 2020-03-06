@@ -4,9 +4,3 @@ def sign_in_and_play
   fill_in :player_2_name, with: 'Count Catula'
   click_button("Submit")
 end
-
-# def attack
-#   sign_in_and_play
-#   visit ('/play')
-#   click_button("Attack")
-# end

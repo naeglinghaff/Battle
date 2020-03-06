@@ -11,6 +11,7 @@ attr_reader :player_1, :player_2, :current_player, :current_opponent, :game_over
     @game_over = false
   end
 
+# flips the turns of player 1 and player 2, unless hp is 0, delegates to end game
   def turn
     if @player_1.hp == 0 || @player_2.hp == 0
     end_game
@@ -19,16 +20,19 @@ attr_reader :player_1, :player_2, :current_player, :current_opponent, :game_over
     end
   end
 
+# class method creates a new instance of itself
   def self.create(player_1, player_2)
     @game = Game.new(player_1, player_2)
   end
 
+# class method that returns the instance of itself (class instance variable)
   def self.instance
     @game
   end
 
 private
 
+# lets a player attack another player
   def attack(player)
     player.reduce_hp
     end_game
@@ -44,6 +48,7 @@ private
     @turn ? @current_opponent = @player_2 : @current_opponent = @player_1
     switch_turn
   end
+
 
   def end_game
     if @player_1.hp == 0 || @player_2.hp == 0
