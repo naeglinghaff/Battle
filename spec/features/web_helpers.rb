@@ -5,9 +5,8 @@ def sign_in_and_play
   click_button("Submit")
 end
 
-def attack
-  sign_in_and_play
-  visit ('/play')
-  click_button("Attack")
-  visit ('/attack')
-end
+# def attack
+#   sign_in_and_play
+#   visit ('/play')
+#   click_button("Attack")
+# end

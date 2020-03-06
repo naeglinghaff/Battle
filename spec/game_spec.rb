@@ -13,15 +13,21 @@ subject {described_class.new(player_1, player_2)}
      expect(subject).to have_attributes(player_2: player_2)
     end
 
-    describe '#attack' do
-      it 'responds to attack' do
-        expect(subject).to respond_to(:attack).with(1).arguments
+    it 'turn' do
+     expect(subject.instance_variable_get(:@turn)).to eql(true)
+   end
+ end
+
+    describe '#turn' do
+      it 'delegates to attack' do
+         expect(subject).to respond_to(:turn)
       end
     end
-end
 
-
-
-
-
+    context 'method functionality' do
+      it '#turn delegates to attack' do
+      expect(subject).to receive(:attack).once
+      subject.turn
+    end
+  end
 end
