@@ -2,7 +2,7 @@
   <div> <%=@current_player_name%> uses attack on <%=@current_opponent_name%> </div>
   <div><%=@player_1_name%>'s HP:<%=@player_1_hp%></div>
   <div><%=@player_2_name%>'s HP:<%=@player_2_hp%></div>
-  <form action='/attack'>
+  <form action='/attack' method='post'>
     <input type='submit' value='Attack'>
     </form>
   <!-- <a href="/attack"><button type="button">Attack</button></a> -->
