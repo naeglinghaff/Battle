@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'player'
 
 describe Player do
-  let(:player) {Player.new("Kate")}
+  let(:player) { Player.new('Kate') }
   describe '#name' do
     it 'says its name' do
-      expect(player.name).to eq ("Kate")
+      expect(player.name).to eq 'Kate'
     end
   end
 
@@ -19,5 +21,4 @@ describe Player do
       expect(player.reduce_hp).to eq 40
     end
   end
-
 end

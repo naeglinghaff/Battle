@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative './features/web_helpers'
 
 ENV['RACK_ENV'] = 'test'

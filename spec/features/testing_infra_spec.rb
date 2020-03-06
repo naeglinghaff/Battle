@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'Testing infra' do
   scenario 'Can run the battle application and view page' do
     visit('/')

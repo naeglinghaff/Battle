@@ -1,17 +1,18 @@
+# frozen_string_literal: true
+
 require 'sinatra/base'
 require './lib/player'
 require './lib/game'
 
 class Battle < Sinatra::Base
-
-# lets you store information across post and get sessions
-enable :sessions
+  # lets you store information across post and get sessions
+  enable :sessions
 
   get '/' do
     erb :index
   end
 
-# submits the name variables from params then puts them in the session hash, then redirects to new get view
+  # submits the name variables from params then puts them in the session hash, then redirects to new get view
   post '/names' do
     player_1 = Player.new(params[:player_1_name])
     player_2 = Player.new(params[:player_2_name])
@@ -40,12 +41,12 @@ enable :sessions
     @current_opponent_name = @game.current_opponent.name
     erb(:attack)
   end
-  
+
   post '/attack' do
     @game.turn
     if @game.game_over == true
       redirect('/game_over')
-   else
+    else
       redirect('/attack')
     end
   end
@@ -54,5 +55,5 @@ enable :sessions
     'game over'
   end
 
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end
